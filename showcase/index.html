@@ -65,10 +65,8 @@
 
     .nav { display: flex; justify-content: space-between; align-items: center; gap: 1rem; }
 
-    .breadcrumb { display: flex; gap: 0.4rem; align-items: center; font-size: 0.95rem; color: var(--muted); }
-    .breadcrumb a { color: inherit; text-decoration: none; transition: color 0.15s; }
-    .breadcrumb a:hover { color: var(--text); }
-    .breadcrumb .logo { color: var(--text); font-weight: 600; }
+    .logo { color: var(--text); font-weight: 600; text-decoration: none; transition: opacity 0.15s; }
+    .logo:hover { opacity: 0.75; }
 
     .lang { display: flex; gap: 0.5rem; }
     .lang button {
@@ -128,11 +126,11 @@
       background: rgba(110, 118, 129, 0.25); padding: 1px 6px; border-radius: 6px; color: var(--text);
     }
 
-    .actions { display: flex; flex-wrap: wrap; gap: 0.6rem; margin-top: 1.25rem; }
+    .actions { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1.25rem; }
 
     .btn {
       display: inline-flex; align-items: center; gap: 0.4rem;
-      padding: 0.5rem 1.15rem;
+      padding: 0.5rem 1rem;
       background: var(--btn-bg); color: var(--btn-text);
       border: 1px solid var(--border); border-radius: 8px;
       text-decoration: none; font: inherit; font-weight: 500; font-size: 0.9rem;
@@ -242,13 +240,7 @@
 
   <header class="container">
     <nav class="nav">
-      <div class="breadcrumb">
-        <a class="logo" href="/">Raúl Estévez</a>
-        <span aria-hidden="true">/</span>
-        <a href="/demos/" data-i18n="demos">Demos</a>
-        <span aria-hidden="true">/</span>
-        <span>Flutter Shop Admin</span>
-      </div>
+      <a class="logo" href="/">Raúl Estévez</a>
       <div class="lang" role="group" aria-label="Idioma / Language">
         <button type="button" data-lang="en">EN</button>
         <button type="button" data-lang="es">ES</button>
@@ -318,9 +310,10 @@
     </div>
 
     <div class="actions">
-      <a class="btn primary" href="https://github.com/RaulEstevezA/Flutter_Shop_Admin" target="_blank" rel="noopener" data-i18n="code">Código y descarga ↗</a>
-      <a class="btn" href="https://github.com/RaulEstevezA/Flutter_Shop_Admin_Backend" target="_blank" rel="noopener" data-i18n="backend">Backend ↗</a>
-      <a class="btn" href="app/" target="_blank" rel="noopener" data-i18n="fullscreen">Pantalla completa ↗</a>
+      <a class="btn primary" href="https://github.com/RaulEstevezA/Flutter_Shop_Admin" target="_blank" rel="noopener" data-i18n="code">Código y descarga</a>
+      <a class="btn" href="https://github.com/RaulEstevezA/Flutter_Shop_Admin_Backend" target="_blank" rel="noopener" data-i18n="backend">Backend</a>
+      <a class="btn" href="app/" target="_blank" rel="noopener" data-i18n="fullscreen">Pantalla completa</a>
+      <a class="btn" href="https://raulesteveza.github.io/demos/" data-i18n="demos">Demos</a>
     </div>
   </template>
 
@@ -331,7 +324,6 @@
 
       var texts = {
         es: {
-          demos: 'Demos',
           hint: 'Arrastra con el ratón para desplazarte por el catálogo y las fotos.',
           subtitle: 'App Flutter para gestionar el catálogo y el stock de una tienda',
           intro: 'Inicio de sesión y registro, catálogo con scroll infinito y edición de cada producto: nombre, precio, stock, tallas, género y fotos desde la cámara o la galería. Esta es la versión web de la app móvil, ejecutándose tal cual en el navegador.',
@@ -340,13 +332,13 @@
           notice_user: 'Usuario de prueba:',
           notice_user_hint: '(o usa el botón «Entrar con el usuario de demo»).',
           notice_storage: 'Los cambios, usuarios y fotos que añadas se guardan solo en este navegador. Puedes volver al estado inicial con «Restablecer datos de la demo» en el menú lateral.',
-          code: 'Código y descarga ↗',
-          backend: 'Backend ↗',
-          fullscreen: 'Pantalla completa ↗',
+          code: 'Código y descarga',
+          backend: 'Backend',
+          fullscreen: 'Pantalla completa',
+          demos: 'Demos',
           view_demo: 'Ver la demo'
         },
         en: {
-          demos: 'Demos',
           hint: 'Drag with the mouse to scroll the catalogue and photos.',
           subtitle: 'Flutter app to manage a shop\'s catalogue and stock',
           intro: 'Login and sign-up, infinite-scroll catalogue and product editing: name, price, stock, sizes, gender and photos from the camera or gallery. This is the web build of the mobile app, running as-is in the browser.',
@@ -355,9 +347,10 @@
           notice_user: 'Test user:',
           notice_user_hint: '(or use the “Entrar con el usuario de demo” button).',
           notice_storage: 'Changes, users and photos you add are only stored in this browser. Go back to the initial state with “Restablecer datos de la demo” in the side menu.',
-          code: 'Code & download ↗',
-          backend: 'Backend ↗',
-          fullscreen: 'Full screen ↗',
+          code: 'Code & download',
+          backend: 'Backend',
+          fullscreen: 'Full screen',
+          demos: 'Demos',
           view_demo: 'View demo'
         }
       };

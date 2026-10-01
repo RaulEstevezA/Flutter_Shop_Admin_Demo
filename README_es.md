@@ -5,9 +5,9 @@
 > Aquí solo está la **versión de demostración web** que se publica en mi web.
 > El proyecto completo (código fuente, la versión original que trabaja contra la API REST e instrucciones para descargar y ejecutar la app) está en:
 >
-> **➡️ [RaulEstevezA/Flutter_Shop_Admin](https://github.com/RaulEstevezA/Flutter_Shop_Admin)** · Backend: [RaulEstevezA/Flutter_Shop_Admin_Backend](https://github.com/RaulEstevezA/Flutter_Shop_Admin_Backend)
+> **[RaulEstevezA/Flutter_Shop_Admin](https://github.com/RaulEstevezA/Flutter_Shop_Admin)** · Backend: [RaulEstevezA/Flutter_Shop_Admin_Backend](https://github.com/RaulEstevezA/Flutter_Shop_Admin_Backend)
 
-**▶️ Demo en vivo:** [raulesteveza.github.io/demos/Flutter_Shop_Admin](https://raulesteveza.github.io/demos/Flutter_Shop_Admin/)
+**Demo en vivo:** [raulesteveza.github.io/demos/Flutter_Shop_Admin](https://raulesteveza.github.io/demos/Flutter_Shop_Admin/)
 
 ## Para qué sirve este repositorio
 
