@@ -9,14 +9,24 @@ class SearchProductDelegate extends SearchDelegate<Product?> {
 
   final SearchProductsCallback searchProducts;
 
-  SearchProductDelegate({ required this.searchProducts });
+  SearchProductDelegate({ required this.searchProducts })
+    : super( searchFieldLabel: 'Buscar producto' );
 
+  // El tema global define titleLarge a 40px en negrita y la búsqueda lo usa
+  // para el campo de texto y su AppBar, así que aquí se reduce.
   @override
-  String get searchFieldLabel => 'Buscar producto';
+  ThemeData appBarTheme(BuildContext context) {
+    final theme = super.appBarTheme(context);
+    final fieldStyle = theme.textTheme.bodyLarge?.copyWith( fontSize: 18 );
 
-  // Sin esto el campo hereda titleLarge del tema (40px en negrita) y no cabe.
-  @override
-  TextStyle? get searchFieldStyle => const TextStyle( fontSize: 18 );
+    return theme.copyWith(
+      textTheme: theme.textTheme.copyWith( titleLarge: fieldStyle ),
+      appBarTheme: theme.appBarTheme.copyWith( titleTextStyle: fieldStyle ),
+      inputDecorationTheme: theme.inputDecorationTheme.copyWith(
+        hintStyle: fieldStyle?.copyWith( color: theme.hintColor ),
+      ),
+    );
+  }
 
   @override
   List<Widget>? buildActions(BuildContext context) {
