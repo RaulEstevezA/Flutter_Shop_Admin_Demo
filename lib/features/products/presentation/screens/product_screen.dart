@@ -29,7 +29,12 @@ class ProductScreen extends ConsumerWidget {
       onTap: () => FocusScope.of(context).unfocus(),
       child: Scaffold(
         appBar: AppBar(
-          title: Text( isNewProduct ? 'Nuevo producto' : 'Editar Producto' ),
+          // El título (fuente grande del tema) se reduce si no cabe junto a los
+          // iconos, en vez de cortarse con puntos suspensivos en pantallas estrechas.
+          title: FittedBox(
+            fit: BoxFit.scaleDown,
+            child: Text( isNewProduct ? 'Nuevo producto' : 'Editar Producto' ),
+          ),
           actions: [
 
             IconButton(onPressed: () async {
@@ -216,6 +221,30 @@ class _ProductInformation extends ConsumerWidget {
 }
 
 
+// En pantallas estrechas el relleno por defecto de los segmentos no deja sitio a
+// las etiquetas ("XXXL" se partía en dos líneas): menos relleno y etiquetas que
+// se reducen si no caben.
+const _compactSegmentStyle = ButtonStyle(
+  visualDensity: VisualDensity.compact,
+  padding: WidgetStatePropertyAll(EdgeInsets.symmetric(horizontal: 4)),
+);
+
+class _SegmentLabel extends StatelessWidget {
+  final String text;
+  final double fontSize;
+
+  const _SegmentLabel(this.text, { required this.fontSize });
+
+  @override
+  Widget build(BuildContext context) {
+    return FittedBox(
+      fit: BoxFit.scaleDown,
+      child: Text(text, maxLines: 1, softWrap: false, style: TextStyle(fontSize: fontSize)),
+    );
+  }
+}
+
+
 class _SizeSelector extends StatelessWidget {
   final List<String> selectedSizes;
   final List<String> sizes = const['XS','S','M','L','XL','XXL','XXXL'];
@@ -232,10 +261,11 @@ class _SizeSelector extends StatelessWidget {
     return SegmentedButton(
       emptySelectionAllowed: true,
       showSelectedIcon: false,
+      style: _compactSegmentStyle,
       segments: sizes.map((size) {
         return ButtonSegment(
           value: size, 
-          label: Text(size, style: const TextStyle(fontSize: 10))
+          label: _SegmentLabel(size, fontSize: 10),
         );
       }).toList(), 
       selected: Set.from( selectedSizes ),
@@ -271,12 +301,12 @@ class _GenderSelector extends StatelessWidget {
       child: SegmentedButton(
         multiSelectionEnabled: false,
         showSelectedIcon: false,
-        style: const ButtonStyle(visualDensity: VisualDensity.compact ),
+        style: _compactSegmentStyle,
         segments: genders.map((size) {
           return ButtonSegment(
             icon: Icon( genderIcons[ genders.indexOf(size) ] ),
             value: size, 
-            label: Text(size, style: const TextStyle(fontSize: 12))
+            label: _SegmentLabel(size, fontSize: 12),
           );
         }).toList(), 
         selected: { selectedGender },

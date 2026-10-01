@@ -32,6 +32,8 @@
       --warn-text:  #e3b341;
       --phone-w:    390px;
       --phone-h:    844px;
+      --app-w:      390px;
+      --app-h:      844px;
     }
 
     :root { color-scheme: dark; }
@@ -165,9 +167,18 @@
     .phone::before { left: -4px; top: 18%; height: 9%; box-shadow: 0 calc(100% + 18px) 0 #1c2128; }
     .phone::after  { right: -4px; top: 24%; height: 13%; }
 
-    .phone iframe {
-      display: block; width: 100%; height: 100%;
-      border: 0; border-radius: 42px; background: #f8f9ff;
+    /* La app se ejecuta siempre a tamaño de móvil real (--app-w × --app-h) y se
+       escala para caber en el marco: así se maqueta igual que en un teléfono en
+       vez de en una ventana más estrecha que cualquier móvil. */
+    .screen {
+      position: relative; width: 100%; height: 100%;
+      overflow: hidden; border-radius: 42px; background: #f8f9ff;
+    }
+    .screen iframe {
+      position: absolute; top: 0; left: 0;
+      width: var(--app-w); height: var(--app-h);
+      border: 0; background: #f8f9ff;
+      transform: scale(var(--k, 1)); transform-origin: 0 0;
     }
 
     .hint { text-align: center; color: var(--muted); font-size: 0.82rem; margin-top: 0.9rem; }
@@ -253,7 +264,9 @@
 
     <div>
       <div class="phone">
-        <iframe id="desktop-app" title="Flutter Shop Admin" loading="eager" allow="clipboard-write"></iframe>
+        <div class="screen">
+          <iframe id="desktop-app" title="Flutter Shop Admin" loading="eager" allow="clipboard-write"></iframe>
+        </div>
       </div>
       <p class="hint" data-i18n="hint">Arrastra con el ratón para desplazarte por los carruseles.</p>
     </div>
@@ -403,6 +416,17 @@
 
       mountApp();
       mobileQuery.addEventListener('change', mountApp);
+
+      // Escala de la app dentro del marco (ver .screen en el CSS).
+      var screenEl = desktopFrame.parentElement;
+      function fitApp() {
+        var k = Math.min(screenEl.clientWidth / 390, screenEl.clientHeight / 844);
+        screenEl.style.setProperty('--k', k || 1);
+        // La altura de la app se ajusta a la del marco para no dejar huecos por redondeo.
+        screenEl.style.setProperty('--app-h', (k ? screenEl.clientHeight / k : 844) + 'px');
+      }
+      if (window.ResizeObserver) new ResizeObserver(fitApp).observe(screenEl);
+      fitApp();
 
       // --- Hoja de información (móvil): se muestra una vez por sesión ---
 

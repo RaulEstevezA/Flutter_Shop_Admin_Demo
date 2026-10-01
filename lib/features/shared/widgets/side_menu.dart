@@ -1,3 +1,5 @@
+import 'dart:math' as math;
+
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_shop_admin/features/auth/presentation/providers/auth_provider.dart';
@@ -31,7 +33,14 @@ class SideMenuState extends ConsumerState<SideMenu> {
     final user = ref.watch(authProvider).user;
     
 
-    return NavigationDrawer(
+    // El ancho por defecto del menú (304 px) tapa casi toda la app en pantallas
+    // estrechas; se limita al 80 % para que siempre se vea parte del contenido.
+    final theme = Theme.of(context);
+    final drawerWidth = math.min(304.0, MediaQuery.of(context).size.width * 0.8);
+
+    return Theme(
+      data: theme.copyWith(drawerTheme: theme.drawerTheme.copyWith(width: drawerWidth)),
+      child: NavigationDrawer(
       elevation: 1,
       selectedIndex: navDrawerIndex,
       onDestinationSelected: (value) {
@@ -96,6 +105,7 @@ class SideMenuState extends ConsumerState<SideMenu> {
           ),
         ),
       ]
+    ),
     );
   }
 }
