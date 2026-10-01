@@ -14,6 +14,10 @@ class SearchProductDelegate extends SearchDelegate<Product?> {
   @override
   String get searchFieldLabel => 'Buscar producto';
 
+  // Sin esto el campo hereda titleLarge del tema (40px en negrita) y no cabe.
+  @override
+  TextStyle? get searchFieldStyle => const TextStyle( fontSize: 18 );
+
   @override
   List<Widget>? buildActions(BuildContext context) {
     return [
