@@ -3,15 +3,16 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:go_router/go_router.dart';
 
+import 'package:flutter_shop_admin/features/products/presentation/delegates/search_product_delegate.dart';
 import 'package:flutter_shop_admin/features/products/presentation/providers/providers.dart';
 import 'package:flutter_shop_admin/features/products/presentation/widgets/widgets.dart';
 import 'package:flutter_shop_admin/features/shared/shared.dart';
 
-class ProductsScreen extends StatelessWidget {
+class ProductsScreen extends ConsumerWidget {
   const ProductsScreen({super.key});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
 
     final scaffoldKey = GlobalKey<ScaffoldState>();
 
@@ -24,7 +25,17 @@ class ProductsScreen extends StatelessWidget {
         ),
         actions: [
           IconButton(
-            onPressed: (){}, 
+            onPressed: () async {
+              final productsRepository = ref.read( productsRepositoryProvider );
+              final product = await showSearch(
+                context: context,
+                delegate: SearchProductDelegate(
+                  searchProducts: productsRepository.searchProductByTerm
+                )
+              );
+              if ( product == null || !context.mounted ) return;
+              context.push('/product/${ product.id }');
+            },
             icon: const Icon( Icons.search_rounded)
           )
         ],
