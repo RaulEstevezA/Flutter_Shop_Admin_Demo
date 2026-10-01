@@ -34,25 +34,29 @@ class _ImageViewer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     
+    // Imagen cuadrada: las ilustraciones del catálogo de la demo son cuadradas
+    // y con una altura fija se recortaban por los lados en columnas estrechas.
     if ( images.isEmpty ) {
       return ClipRRect(
         borderRadius: BorderRadius.circular(20),
-        child: Image.asset('assets/images/no-image.jpg', 
-          fit: BoxFit.cover,
-          height: 250,
+        child: AspectRatio(
+          aspectRatio: 1,
+          child: Image.asset('assets/images/no-image.jpg', fit: BoxFit.cover),
         ),
       );
     }
 
     return ClipRRect(
       borderRadius: BorderRadius.circular(20),
-      child: FadeInImage(
-        fit: BoxFit.cover,
-        height: 250,
-        fadeOutDuration: const Duration(milliseconds: 100),
-        fadeInDuration: const Duration(milliseconds: 200),
-        image: productImageProvider( images.first ),
-        placeholder: const AssetImage('assets/loaders/bottle-loader.gif'),
+      child: AspectRatio(
+        aspectRatio: 1,
+        child: FadeInImage(
+          fit: BoxFit.cover,
+          fadeOutDuration: const Duration(milliseconds: 100),
+          fadeInDuration: const Duration(milliseconds: 200),
+          image: productImageProvider( images.first ),
+          placeholder: const AssetImage('assets/loaders/bottle-loader.gif'),
+        ),
       ),
     );
   }

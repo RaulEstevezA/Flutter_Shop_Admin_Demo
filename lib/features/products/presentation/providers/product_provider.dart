@@ -63,8 +63,7 @@ class ProductNotifier extends StateNotifier<ProductState> {
       );
 
     } catch (e) {
-      // 404 product not found
-      print(e);
+      // 404 product not found: la pantalla se queda en estado de carga.
     }
   }
 }

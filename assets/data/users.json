@@ -2,7 +2,7 @@
   "users": [
     {
       "id": "e5463438-0caf-49cb-aaa7-dc3250f9a2f3",
-      "email": "test1@google.com",
+      "email": "test1@example.com",
       "fullName": "Juan Carlos",
       "roles": [
         "admin"
@@ -11,7 +11,7 @@
     },
     {
       "id": "3b4c95a3-6ea1-4d07-8566-5dbb600e74c0",
-      "email": "test2@google.com",
+      "email": "test2@example.com",
       "fullName": "María Solano",
       "roles": [
         "user",

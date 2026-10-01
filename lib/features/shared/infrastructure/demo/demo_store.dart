@@ -20,7 +20,7 @@ class DemoStore {
   DemoStore.withBundle( AssetBundle bundle ) : _bundle = bundle;
 
   /// Usuario de prueba que se ofrece en la pantalla de login (`assets/data/users.json`).
-  static const demoEmail = 'test1@google.com';
+  static const demoEmail = 'test1@example.com';
   static const demoPassword = 'Abc123';
 
   static const _productsKey = 'demo_products';

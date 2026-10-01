@@ -21,7 +21,7 @@ La arquitectura es la misma que en el repositorio principal (Clean Architecture,
 
 ## Cómo probarla
 
-- **Usuario de prueba:** `test1@google.com` · `Abc123`, o el botón «Entrar con el usuario de demo» del login.
+- **Usuario de prueba:** `test1@example.com` · `Abc123`, o el botón «Entrar con el usuario de demo» del login.
 - **Registro:** se pueden crear cuentas nuevas; solo existen en tu navegador.
 - **Productos:** edita stock, precios, tallas o fotos, o crea productos nuevos. Los cambios sobreviven a recargar la página.
 - **Fotos:** en el navegador, la galería y la cámara abren el selector de archivos. Las fotos se reducen a 1000 px como máximo y se guardan en el navegador.
@@ -45,13 +45,16 @@ Además, en esta demo:
 
 ## Datos de la demo
 
-Los datos iniciales están en `assets/data/` (`products.json`, `users.json`) y las fotos de los productos, en `assets/products/`. Se generan a partir de un volcado SQL del backend con:
+El catálogo es **propio**: 43 productos inventados (nombres, descripciones, precios, tallas y stock), sin marcas, con **ilustraciones dibujadas para esta demo**. No hay fotos ni textos de terceros, así que no hay que acreditar a nadie.
+
+- La definición está en [`tool/catalog/catalog.json`](tool/catalog/catalog.json): cada producto incluye cómo se dibuja (tipo de prenda, color y estilo: rayas, franja, bolsillo, estampado, cremallera, acolchado o pompón).
+- [`tool/generate_catalog.dart`](tool/generate_catalog.dart) dibuja las prendas en SVG, las convierte a WebP con Chrome headless y `cwebp`, y escribe `assets/data/products.json`, `assets/data/users.json` y `assets/products/`:
 
 ```bash
-dart run tool/import_sql_dump.dart --sql=volcado.sql --images=carpeta/de/fotos [--password=Abc123]
+dart run tool/generate_catalog.dart
 ```
 
-Las contraseñas del volcado están cifradas y no se pueden recuperar, así que todos los usuarios importados usan la contraseña indicada con `--password`.
+También se pueden importar los datos de un volcado SQL del backend con `tool/import_sql_dump.dart` (`--sql=volcado.sql --images=carpeta/de/fotos`). Ojo: el catálogo de ejemplo del curso usa fotos y textos de una marca real y no debe publicarse.
 
 ## Estructura relevante
 
@@ -66,7 +69,9 @@ lib/features/shared/infrastructure/demo/
 lib/features/auth/infrastructure/datasources/auth_datasource_demo.dart
 lib/features/products/infrastructure/datasources/products_datasource_demo.dart
 test/demo_backend_test.dart        Tests del backend simulado
-tool/import_sql_dump.dart          Importador del volcado SQL
+tool/catalog/catalog.json          Definición del catálogo (productos, usuarios e ilustraciones)
+tool/generate_catalog.dart         Generador del catálogo y de las ilustraciones
+tool/import_sql_dump.dart          Importador de un volcado SQL del backend (opcional)
 showcase/index.html                Página de presentación con el marco de móvil
 .github/workflows/                 Tests, compilación y despliegue automático
 ```

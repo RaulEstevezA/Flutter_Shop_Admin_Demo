@@ -1,12 +1,44 @@
 {
   "products": [
     {
-      "id": "00000000-0000-4000-8000-000000000001",
-      "title": "Camiseta básica de algodón",
+      "id": "prod-01",
+      "title": "Camiseta básica de algodón orgánico",
       "price": 19,
-      "description": "Camiseta de manga corta de algodón orgánico, corte recto y cuello redondo. (Producto de ejemplo provisional.)",
-      "slug": "camiseta_basica_algodon",
+      "description": "Camiseta de manga corta en algodón orgánico de 180 g/m², con cuello redondo reforzado y corte recto. Un básico que aguanta lavado tras lavado.",
+      "slug": "camiseta_basica_de_algodon_organico_men",
       "stock": 24,
+      "sizes": [
+        "XS",
+        "S",
+        "M",
+        "L",
+        "XL",
+        "XXL"
+      ],
+      "gender": "men",
+      "tags": [
+        "camiseta",
+        "basico"
+      ],
+      "images": [
+        "camiseta_basica_de_algodon_organico_men.webp"
+      ],
+      "user": {
+        "id": "e5463438-0caf-49cb-aaa7-dc3250f9a2f3",
+        "email": "test1@example.com",
+        "fullName": "Juan Carlos",
+        "roles": [
+          "admin"
+        ]
+      }
+    },
+    {
+      "id": "prod-02",
+      "title": "Camiseta de rayas marineras",
+      "price": 24,
+      "description": "Rayas horizontales tejidas, no estampadas, sobre un punto de algodón suave. Corte regular y hombros ligeramente caídos.",
+      "slug": "camiseta_de_rayas_marineras_men",
+      "stock": 12,
       "sizes": [
         "S",
         "M",
@@ -16,12 +48,14 @@
       "gender": "men",
       "tags": [
         "camiseta",
-        "algodon"
+        "rayas"
       ],
-      "images": [],
+      "images": [
+        "camiseta_de_rayas_marineras_men.webp"
+      ],
       "user": {
         "id": "e5463438-0caf-49cb-aaa7-dc3250f9a2f3",
-        "email": "test1@google.com",
+        "email": "test1@example.com",
         "fullName": "Juan Carlos",
         "roles": [
           "admin"
@@ -29,11 +63,694 @@
       }
     },
     {
-      "id": "00000000-0000-4000-8000-000000000002",
-      "title": "Sudadera con capucha",
+      "id": "prod-03",
+      "title": "Camiseta con bolsillo",
+      "price": 22,
+      "description": "Camiseta de algodón peinado con bolsillo de parche en el pecho. Lavada en prenda para un tacto suave desde el primer día.",
+      "slug": "camiseta_con_bolsillo_men",
+      "stock": 9,
+      "sizes": [
+        "S",
+        "M",
+        "L",
+        "XL",
+        "XXL"
+      ],
+      "gender": "men",
+      "tags": [
+        "camiseta",
+        "bolsillo"
+      ],
+      "images": [
+        "camiseta_con_bolsillo_men.webp"
+      ],
+      "user": {
+        "id": "e5463438-0caf-49cb-aaa7-dc3250f9a2f3",
+        "email": "test1@example.com",
+        "fullName": "Juan Carlos",
+        "roles": [
+          "admin"
+        ]
+      }
+    },
+    {
+      "id": "prod-04",
+      "title": "Camiseta estampado ola",
+      "price": 26,
+      "description": "Estampado de olas en serigrafía al agua sobre algodón color arena. Tintas sin PVC y corte relajado.",
+      "slug": "camiseta_estampado_ola_men",
+      "stock": 15,
+      "sizes": [
+        "S",
+        "M",
+        "L",
+        "XL"
+      ],
+      "gender": "men",
+      "tags": [
+        "camiseta",
+        "estampado"
+      ],
+      "images": [
+        "camiseta_estampado_ola_men.webp"
+      ],
+      "user": {
+        "id": "e5463438-0caf-49cb-aaa7-dc3250f9a2f3",
+        "email": "test1@example.com",
+        "fullName": "Juan Carlos",
+        "roles": [
+          "admin"
+        ]
+      }
+    },
+    {
+      "id": "prod-05",
+      "title": "Camiseta técnica de deporte",
+      "price": 27,
+      "description": "Tejido de poliéster reciclado que evacúa el sudor y seca rápido. Franja de contraste en el pecho y costuras planas para evitar roces.",
+      "slug": "camiseta_tecnica_de_deporte_men",
+      "stock": 20,
+      "sizes": [
+        "S",
+        "M",
+        "L",
+        "XL",
+        "XXL"
+      ],
+      "gender": "men",
+      "tags": [
+        "camiseta",
+        "deporte"
+      ],
+      "images": [
+        "camiseta_tecnica_de_deporte_men.webp"
+      ],
+      "user": {
+        "id": "e5463438-0caf-49cb-aaa7-dc3250f9a2f3",
+        "email": "test1@example.com",
+        "fullName": "Juan Carlos",
+        "roles": [
+          "admin"
+        ]
+      }
+    },
+    {
+      "id": "prod-06",
+      "title": "Camiseta básica blanca",
+      "price": 17,
+      "description": "La camiseta blanca de siempre: algodón de punto liso, cuello canalé y largo pensado para llevar por fuera o por dentro.",
+      "slug": "camiseta_basica_blanca_men",
+      "stock": 30,
+      "sizes": [
+        "XS",
+        "S",
+        "M",
+        "L",
+        "XL",
+        "XXL",
+        "XXXL"
+      ],
+      "gender": "men",
+      "tags": [
+        "camiseta",
+        "basico"
+      ],
+      "images": [
+        "camiseta_basica_blanca_men.webp"
+      ],
+      "user": {
+        "id": "e5463438-0caf-49cb-aaa7-dc3250f9a2f3",
+        "email": "test1@example.com",
+        "fullName": "Juan Carlos",
+        "roles": [
+          "admin"
+        ]
+      }
+    },
+    {
+      "id": "prod-07",
+      "title": "Camiseta de manga larga ligera",
+      "price": 29,
+      "description": "Manga larga de algodón ligero para entretiempo, con puños ajustados y cuello redondo. Perfecta como primera capa.",
+      "slug": "camiseta_de_manga_larga_ligera_men",
+      "stock": 7,
+      "sizes": [
+        "S",
+        "M",
+        "L",
+        "XL"
+      ],
+      "gender": "men",
+      "tags": [
+        "camiseta",
+        "manga larga"
+      ],
+      "images": [
+        "camiseta_de_manga_larga_ligera_men.webp"
+      ],
+      "user": {
+        "id": "e5463438-0caf-49cb-aaa7-dc3250f9a2f3",
+        "email": "test1@example.com",
+        "fullName": "Juan Carlos",
+        "roles": [
+          "admin"
+        ]
+      }
+    },
+    {
+      "id": "prod-08",
+      "title": "Camiseta de manga larga a rayas",
+      "price": 32,
+      "description": "Rayas finas en crudo y granate sobre punto grueso de algodón. Edición limitada: sin existencias por ahora.",
+      "slug": "camiseta_de_manga_larga_a_rayas_men",
+      "stock": 0,
+      "sizes": [
+        "S",
+        "M",
+        "L"
+      ],
+      "gender": "men",
+      "tags": [
+        "camiseta",
+        "manga larga",
+        "rayas"
+      ],
+      "images": [
+        "camiseta_de_manga_larga_a_rayas_men.webp"
+      ],
+      "user": {
+        "id": "e5463438-0caf-49cb-aaa7-dc3250f9a2f3",
+        "email": "test1@example.com",
+        "fullName": "Juan Carlos",
+        "roles": [
+          "admin"
+        ]
+      }
+    },
+    {
+      "id": "prod-09",
+      "title": "Sudadera de cuello redondo",
       "price": 45,
-      "description": "Sudadera de felpa con capucha ajustable y bolsillo canguro. (Producto de ejemplo provisional.)",
-      "slug": "sudadera_capucha",
+      "description": "Sudadera de felpa perchada por dentro, con puños y bajo de canalé. Cálida sin abultar.",
+      "slug": "sudadera_de_cuello_redondo_men",
+      "stock": 18,
+      "sizes": [
+        "S",
+        "M",
+        "L",
+        "XL",
+        "XXL"
+      ],
+      "gender": "men",
+      "tags": [
+        "sudadera"
+      ],
+      "images": [
+        "sudadera_de_cuello_redondo_men.webp"
+      ],
+      "user": {
+        "id": "e5463438-0caf-49cb-aaa7-dc3250f9a2f3",
+        "email": "test1@example.com",
+        "fullName": "Juan Carlos",
+        "roles": [
+          "admin"
+        ]
+      }
+    },
+    {
+      "id": "prod-10",
+      "title": "Sudadera con franja",
+      "price": 49,
+      "description": "Sudadera de algodón con una franja ancha tejida a la altura del pecho. Corte recto y tacto afelpado.",
+      "slug": "sudadera_con_franja_men",
+      "stock": 8,
+      "sizes": [
+        "M",
+        "L",
+        "XL"
+      ],
+      "gender": "men",
+      "tags": [
+        "sudadera",
+        "rayas"
+      ],
+      "images": [
+        "sudadera_con_franja_men.webp"
+      ],
+      "user": {
+        "id": "e5463438-0caf-49cb-aaa7-dc3250f9a2f3",
+        "email": "test1@example.com",
+        "fullName": "Juan Carlos",
+        "roles": [
+          "admin"
+        ]
+      }
+    },
+    {
+      "id": "prod-11",
+      "title": "Sudadera con capucha",
+      "price": 55,
+      "description": "Sudadera con capucha forrada, cordones planos y bolsillo canguro. Algodón y poliéster reciclado.",
+      "slug": "sudadera_con_capucha_men",
+      "stock": 11,
+      "sizes": [
+        "S",
+        "M",
+        "L",
+        "XL",
+        "XXL"
+      ],
+      "gender": "men",
+      "tags": [
+        "sudadera",
+        "capucha"
+      ],
+      "images": [
+        "sudadera_con_capucha_men.webp"
+      ],
+      "user": {
+        "id": "e5463438-0caf-49cb-aaa7-dc3250f9a2f3",
+        "email": "test1@example.com",
+        "fullName": "Juan Carlos",
+        "roles": [
+          "admin"
+        ]
+      }
+    },
+    {
+      "id": "prod-12",
+      "title": "Sudadera con capucha y cremallera",
+      "price": 59,
+      "description": "Capucha con cremallera metálica de doble sentido y dos bolsillos laterales. Felpa de gramaje medio para todo el año.",
+      "slug": "sudadera_con_capucha_y_cremallera_men",
+      "stock": 6,
+      "sizes": [
+        "M",
+        "L",
+        "XL"
+      ],
+      "gender": "men",
+      "tags": [
+        "sudadera",
+        "capucha",
+        "cremallera"
+      ],
+      "images": [
+        "sudadera_con_capucha_y_cremallera_men.webp"
+      ],
+      "user": {
+        "id": "e5463438-0caf-49cb-aaa7-dc3250f9a2f3",
+        "email": "test1@example.com",
+        "fullName": "Juan Carlos",
+        "roles": [
+          "admin"
+        ]
+      }
+    },
+    {
+      "id": "prod-13",
+      "title": "Chaqueta de entretiempo",
+      "price": 79,
+      "description": "Chaqueta de algodón encerado con cuello alto, cremallera frontal y bolsillos con solapa. Repele la lluvia ligera.",
+      "slug": "chaqueta_de_entretiempo_men",
+      "stock": 5,
+      "sizes": [
+        "S",
+        "M",
+        "L",
+        "XL"
+      ],
+      "gender": "men",
+      "tags": [
+        "chaqueta"
+      ],
+      "images": [
+        "chaqueta_de_entretiempo_men.webp"
+      ],
+      "user": {
+        "id": "e5463438-0caf-49cb-aaa7-dc3250f9a2f3",
+        "email": "test1@example.com",
+        "fullName": "Juan Carlos",
+        "roles": [
+          "admin"
+        ]
+      }
+    },
+    {
+      "id": "prod-14",
+      "title": "Plumífero ligero",
+      "price": 99,
+      "description": "Chaqueta acolchada con relleno sintético reciclado, muy ligera y compresible. Se guarda en su propio bolsillo.",
+      "slug": "plumifero_ligero_men",
+      "stock": 3,
+      "sizes": [
+        "M",
+        "L",
+        "XL",
+        "XXL"
+      ],
+      "gender": "men",
+      "tags": [
+        "chaqueta",
+        "acolchada"
+      ],
+      "images": [
+        "plumifero_ligero_men.webp"
+      ],
+      "user": {
+        "id": "e5463438-0caf-49cb-aaa7-dc3250f9a2f3",
+        "email": "test1@example.com",
+        "fullName": "Juan Carlos",
+        "roles": [
+          "admin"
+        ]
+      }
+    },
+    {
+      "id": "prod-15",
+      "title": "Pantalón de chándal gris",
+      "price": 39,
+      "description": "Pantalón jogger de felpa con cintura elástica, cordón ajustable y puños en el tobillo.",
+      "slug": "pantalon_de_chandal_gris_men",
+      "stock": 14,
+      "sizes": [
+        "S",
+        "M",
+        "L",
+        "XL"
+      ],
+      "gender": "men",
+      "tags": [
+        "pantalon",
+        "chandal"
+      ],
+      "images": [
+        "pantalon_de_chandal_gris_men.webp"
+      ],
+      "user": {
+        "id": "e5463438-0caf-49cb-aaa7-dc3250f9a2f3",
+        "email": "test1@example.com",
+        "fullName": "Juan Carlos",
+        "roles": [
+          "admin"
+        ]
+      }
+    },
+    {
+      "id": "prod-16",
+      "title": "Pantalón de chándal negro",
+      "price": 42,
+      "description": "Jogger de algodón cepillado en negro, con bolsillos laterales profundos y bajo ajustado. Quedan pocas unidades.",
+      "slug": "pantalon_de_chandal_negro_men",
+      "stock": 2,
+      "sizes": [
+        "M",
+        "L",
+        "XL"
+      ],
+      "gender": "men",
+      "tags": [
+        "pantalon",
+        "chandal"
+      ],
+      "images": [
+        "pantalon_de_chandal_negro_men.webp"
+      ],
+      "user": {
+        "id": "e5463438-0caf-49cb-aaa7-dc3250f9a2f3",
+        "email": "test1@example.com",
+        "fullName": "Juan Carlos",
+        "roles": [
+          "admin"
+        ]
+      }
+    },
+    {
+      "id": "prod-17",
+      "title": "Gorro de punto con pompón",
+      "price": 22,
+      "description": "Gorro de punto canalé con vuelta y pompón. Mezcla de lana merino y acrílico, suave y sin picor.",
+      "slug": "gorro_de_punto_con_pompon_men",
+      "stock": 16,
+      "sizes": [],
+      "gender": "men",
+      "tags": [
+        "gorro",
+        "accesorios"
+      ],
+      "images": [
+        "gorro_de_punto_con_pompon_men.webp"
+      ],
+      "user": {
+        "id": "e5463438-0caf-49cb-aaa7-dc3250f9a2f3",
+        "email": "test1@example.com",
+        "fullName": "Juan Carlos",
+        "roles": [
+          "admin"
+        ]
+      }
+    },
+    {
+      "id": "prod-18",
+      "title": "Gorra de lona",
+      "price": 18,
+      "description": "Gorra de seis paneles en lona de algodón lavada, con visera curva y cierre trasero ajustable.",
+      "slug": "gorra_de_lona_men",
+      "stock": 21,
+      "sizes": [],
+      "gender": "men",
+      "tags": [
+        "gorra",
+        "accesorios"
+      ],
+      "images": [
+        "gorra_de_lona_men.webp"
+      ],
+      "user": {
+        "id": "e5463438-0caf-49cb-aaa7-dc3250f9a2f3",
+        "email": "test1@example.com",
+        "fullName": "Juan Carlos",
+        "roles": [
+          "admin"
+        ]
+      }
+    },
+    {
+      "id": "prod-19",
+      "title": "Camiseta básica entallada",
+      "price": 19,
+      "description": "Camiseta de algodón orgánico con corte entallado y cuello redondo fino. Tejido elástico que mantiene la forma.",
+      "slug": "camiseta_basica_entallada_women",
+      "stock": 22,
+      "sizes": [
+        "XS",
+        "S",
+        "M",
+        "L",
+        "XL"
+      ],
+      "gender": "women",
+      "tags": [
+        "camiseta",
+        "basico"
+      ],
+      "images": [
+        "camiseta_basica_entallada_women.webp"
+      ],
+      "user": {
+        "id": "e5463438-0caf-49cb-aaa7-dc3250f9a2f3",
+        "email": "test1@example.com",
+        "fullName": "Juan Carlos",
+        "roles": [
+          "admin"
+        ]
+      }
+    },
+    {
+      "id": "prod-20",
+      "title": "Camiseta de rayas",
+      "price": 24,
+      "description": "Clásica de rayas azul marino sobre blanco, en punto de algodón grueso con caída suave.",
+      "slug": "camiseta_de_rayas_women",
+      "stock": 10,
+      "sizes": [
+        "XS",
+        "S",
+        "M",
+        "L"
+      ],
+      "gender": "women",
+      "tags": [
+        "camiseta",
+        "rayas"
+      ],
+      "images": [
+        "camiseta_de_rayas_women.webp"
+      ],
+      "user": {
+        "id": "e5463438-0caf-49cb-aaa7-dc3250f9a2f3",
+        "email": "test1@example.com",
+        "fullName": "Juan Carlos",
+        "roles": [
+          "admin"
+        ]
+      }
+    },
+    {
+      "id": "prod-21",
+      "title": "Camiseta estampado sol",
+      "price": 26,
+      "description": "Estampado de sol poniente en serigrafía al agua sobre algodón crudo. Corte recto y ligeramente corto.",
+      "slug": "camiseta_estampado_sol_women",
+      "stock": 13,
+      "sizes": [
+        "XS",
+        "S",
+        "M",
+        "L"
+      ],
+      "gender": "women",
+      "tags": [
+        "camiseta",
+        "estampado"
+      ],
+      "images": [
+        "camiseta_estampado_sol_women.webp"
+      ],
+      "user": {
+        "id": "e5463438-0caf-49cb-aaa7-dc3250f9a2f3",
+        "email": "test1@example.com",
+        "fullName": "Juan Carlos",
+        "roles": [
+          "admin"
+        ]
+      }
+    },
+    {
+      "id": "prod-22",
+      "title": "Camiseta con bolsillo",
+      "price": 22,
+      "description": "Camiseta mostaza con bolsillo de parche y costuras en contraste. Agotada temporalmente.",
+      "slug": "camiseta_con_bolsillo_women",
+      "stock": 0,
+      "sizes": [
+        "S",
+        "M",
+        "L"
+      ],
+      "gender": "women",
+      "tags": [
+        "camiseta",
+        "bolsillo"
+      ],
+      "images": [
+        "camiseta_con_bolsillo_women.webp"
+      ],
+      "user": {
+        "id": "e5463438-0caf-49cb-aaa7-dc3250f9a2f3",
+        "email": "test1@example.com",
+        "fullName": "Juan Carlos",
+        "roles": [
+          "admin"
+        ]
+      }
+    },
+    {
+      "id": "prod-23",
+      "title": "Camiseta técnica de deporte",
+      "price": 27,
+      "description": "Camiseta transpirable de secado rápido con franja de contraste. Tejido reciclado y costuras planas.",
+      "slug": "camiseta_tecnica_de_deporte_women",
+      "stock": 17,
+      "sizes": [
+        "XS",
+        "S",
+        "M",
+        "L"
+      ],
+      "gender": "women",
+      "tags": [
+        "camiseta",
+        "deporte"
+      ],
+      "images": [
+        "camiseta_tecnica_de_deporte_women.webp"
+      ],
+      "user": {
+        "id": "e5463438-0caf-49cb-aaa7-dc3250f9a2f3",
+        "email": "test1@example.com",
+        "fullName": "Juan Carlos",
+        "roles": [
+          "admin"
+        ]
+      }
+    },
+    {
+      "id": "prod-24",
+      "title": "Camiseta de manga larga canalé",
+      "price": 29,
+      "description": "Manga larga en punto canalé elástico, ajustada al cuerpo y con cuello redondo. Combina con todo.",
+      "slug": "camiseta_de_manga_larga_canale_women",
+      "stock": 9,
+      "sizes": [
+        "XS",
+        "S",
+        "M",
+        "L"
+      ],
+      "gender": "women",
+      "tags": [
+        "camiseta",
+        "manga larga"
+      ],
+      "images": [
+        "camiseta_de_manga_larga_canale_women.webp"
+      ],
+      "user": {
+        "id": "e5463438-0caf-49cb-aaa7-dc3250f9a2f3",
+        "email": "test1@example.com",
+        "fullName": "Juan Carlos",
+        "roles": [
+          "admin"
+        ]
+      }
+    },
+    {
+      "id": "prod-25",
+      "title": "Camiseta de manga larga a rayas",
+      "price": 32,
+      "description": "Rayas teja sobre fondo crudo en algodón grueso, con puños vueltos. Inspiración marinera.",
+      "slug": "camiseta_de_manga_larga_a_rayas_women",
+      "stock": 6,
+      "sizes": [
+        "XS",
+        "S",
+        "M"
+      ],
+      "gender": "women",
+      "tags": [
+        "camiseta",
+        "manga larga",
+        "rayas"
+      ],
+      "images": [
+        "camiseta_de_manga_larga_a_rayas_women.webp"
+      ],
+      "user": {
+        "id": "e5463438-0caf-49cb-aaa7-dc3250f9a2f3",
+        "email": "test1@example.com",
+        "fullName": "Juan Carlos",
+        "roles": [
+          "admin"
+        ]
+      }
+    },
+    {
+      "id": "prod-26",
+      "title": "Sudadera corta",
+      "price": 45,
+      "description": "Sudadera de felpa con largo a la cintura, hombros caídos y bajo de canalé ancho.",
+      "slug": "sudadera_corta_women",
       "stock": 12,
       "sizes": [
         "XS",
@@ -45,10 +762,12 @@
       "tags": [
         "sudadera"
       ],
-      "images": [],
+      "images": [
+        "sudadera_corta_women.webp"
+      ],
       "user": {
         "id": "e5463438-0caf-49cb-aaa7-dc3250f9a2f3",
-        "email": "test1@google.com",
+        "email": "test1@example.com",
         "fullName": "Juan Carlos",
         "roles": [
           "admin"
@@ -56,12 +775,212 @@
       }
     },
     {
-      "id": "00000000-0000-4000-8000-000000000003",
-      "title": "Chaqueta acolchada infantil",
-      "price": 39,
-      "description": "Chaqueta ligera acolchada con cremallera, pensada para entretiempo. (Producto de ejemplo provisional.)",
-      "slug": "chaqueta_acolchada_infantil",
+      "id": "prod-27",
+      "title": "Sudadera con capucha",
+      "price": 55,
+      "description": "Sudadera con capucha en azul cielo, con bolsillo canguro y cordones de algodón. Interior afelpado.",
+      "slug": "sudadera_con_capucha_women",
       "stock": 8,
+      "sizes": [
+        "XS",
+        "S",
+        "M",
+        "L",
+        "XL"
+      ],
+      "gender": "women",
+      "tags": [
+        "sudadera",
+        "capucha"
+      ],
+      "images": [
+        "sudadera_con_capucha_women.webp"
+      ],
+      "user": {
+        "id": "e5463438-0caf-49cb-aaa7-dc3250f9a2f3",
+        "email": "test1@example.com",
+        "fullName": "Juan Carlos",
+        "roles": [
+          "admin"
+        ]
+      }
+    },
+    {
+      "id": "prod-28",
+      "title": "Sudadera con capucha y cremallera",
+      "price": 59,
+      "description": "Capucha con cremallera en color granate, bolsillos laterales y puños con canalé.",
+      "slug": "sudadera_con_capucha_y_cremallera_women",
+      "stock": 4,
+      "sizes": [
+        "S",
+        "M",
+        "L"
+      ],
+      "gender": "women",
+      "tags": [
+        "sudadera",
+        "capucha",
+        "cremallera"
+      ],
+      "images": [
+        "sudadera_con_capucha_y_cremallera_women.webp"
+      ],
+      "user": {
+        "id": "e5463438-0caf-49cb-aaa7-dc3250f9a2f3",
+        "email": "test1@example.com",
+        "fullName": "Juan Carlos",
+        "roles": [
+          "admin"
+        ]
+      }
+    },
+    {
+      "id": "prod-29",
+      "title": "Chaqueta acolchada corta",
+      "price": 95,
+      "description": "Plumífero corto en color crema con relleno sintético reciclado y cuello alto. Abriga mucho y pesa poco.",
+      "slug": "chaqueta_acolchada_corta_women",
+      "stock": 3,
+      "sizes": [
+        "XS",
+        "S",
+        "M",
+        "L"
+      ],
+      "gender": "women",
+      "tags": [
+        "chaqueta",
+        "acolchada"
+      ],
+      "images": [
+        "chaqueta_acolchada_corta_women.webp"
+      ],
+      "user": {
+        "id": "e5463438-0caf-49cb-aaa7-dc3250f9a2f3",
+        "email": "test1@example.com",
+        "fullName": "Juan Carlos",
+        "roles": [
+          "admin"
+        ]
+      }
+    },
+    {
+      "id": "prod-30",
+      "title": "Chaqueta de algodón",
+      "price": 85,
+      "description": "Chaqueta de sarga de algodón en azul índigo, con cremallera, cuello alto y bolsillos con solapa.",
+      "slug": "chaqueta_de_algodon_women",
+      "stock": 7,
+      "sizes": [
+        "XS",
+        "S",
+        "M",
+        "L"
+      ],
+      "gender": "women",
+      "tags": [
+        "chaqueta"
+      ],
+      "images": [
+        "chaqueta_de_algodon_women.webp"
+      ],
+      "user": {
+        "id": "e5463438-0caf-49cb-aaa7-dc3250f9a2f3",
+        "email": "test1@example.com",
+        "fullName": "Juan Carlos",
+        "roles": [
+          "admin"
+        ]
+      }
+    },
+    {
+      "id": "prod-31",
+      "title": "Pantalón jogger",
+      "price": 39,
+      "description": "Jogger de felpa ligera en verde salvia, con cintura elástica alta y puños en el tobillo.",
+      "slug": "pantalon_jogger_women",
+      "stock": 11,
+      "sizes": [
+        "XS",
+        "S",
+        "M",
+        "L"
+      ],
+      "gender": "women",
+      "tags": [
+        "pantalon",
+        "chandal"
+      ],
+      "images": [
+        "pantalon_jogger_women.webp"
+      ],
+      "user": {
+        "id": "e5463438-0caf-49cb-aaa7-dc3250f9a2f3",
+        "email": "test1@example.com",
+        "fullName": "Juan Carlos",
+        "roles": [
+          "admin"
+        ]
+      }
+    },
+    {
+      "id": "prod-32",
+      "title": "Gorro de punto",
+      "price": 20,
+      "description": "Gorro de punto canalé con vuelta ancha, en mezcla de lana suave. Color mostaza.",
+      "slug": "gorro_de_punto_women",
+      "stock": 19,
+      "sizes": [],
+      "gender": "women",
+      "tags": [
+        "gorro",
+        "accesorios"
+      ],
+      "images": [
+        "gorro_de_punto_women.webp"
+      ],
+      "user": {
+        "id": "e5463438-0caf-49cb-aaa7-dc3250f9a2f3",
+        "email": "test1@example.com",
+        "fullName": "Juan Carlos",
+        "roles": [
+          "admin"
+        ]
+      }
+    },
+    {
+      "id": "prod-33",
+      "title": "Gorra de lona",
+      "price": 18,
+      "description": "Gorra de seis paneles en lona verde oliva, con visera curva y cierre de hebilla.",
+      "slug": "gorra_de_lona_women",
+      "stock": 14,
+      "sizes": [],
+      "gender": "women",
+      "tags": [
+        "gorra",
+        "accesorios"
+      ],
+      "images": [
+        "gorra_de_lona_women.webp"
+      ],
+      "user": {
+        "id": "e5463438-0caf-49cb-aaa7-dc3250f9a2f3",
+        "email": "test1@example.com",
+        "fullName": "Juan Carlos",
+        "roles": [
+          "admin"
+        ]
+      }
+    },
+    {
+      "id": "prod-34",
+      "title": "Camiseta infantil básica",
+      "price": 12,
+      "description": "Camiseta infantil de algodón orgánico, suave y resistente, con cuello que no pierde la forma.",
+      "slug": "camiseta_infantil_basica_kid",
+      "stock": 25,
       "sizes": [
         "XS",
         "S",
@@ -69,12 +988,15 @@
       ],
       "gender": "kid",
       "tags": [
-        "chaqueta"
+        "camiseta",
+        "infantil"
       ],
-      "images": [],
+      "images": [
+        "camiseta_infantil_basica_kid.webp"
+      ],
       "user": {
         "id": "e5463438-0caf-49cb-aaa7-dc3250f9a2f3",
-        "email": "test1@google.com",
+        "email": "test1@example.com",
         "fullName": "Juan Carlos",
         "roles": [
           "admin"
@@ -82,22 +1004,265 @@
       }
     },
     {
-      "id": "00000000-0000-4000-8000-000000000004",
-      "title": "Gorra de lona",
-      "price": 15,
-      "description": "Gorra de lona con cierre ajustable. (Producto de ejemplo provisional.)",
-      "slug": "gorra_lona",
-      "stock": 0,
-      "sizes": [],
-      "gender": "women",
-      "tags": [
-        "gorra",
-        "accesorios"
+      "id": "prod-35",
+      "title": "Camiseta infantil de rayas",
+      "price": 14,
+      "description": "Rayas rojas y blancas en algodón grueso, para el día a día y el patio.",
+      "slug": "camiseta_infantil_de_rayas_kid",
+      "stock": 18,
+      "sizes": [
+        "XS",
+        "S",
+        "M"
       ],
-      "images": [],
+      "gender": "kid",
+      "tags": [
+        "camiseta",
+        "infantil",
+        "rayas"
+      ],
+      "images": [
+        "camiseta_infantil_de_rayas_kid.webp"
+      ],
       "user": {
         "id": "e5463438-0caf-49cb-aaa7-dc3250f9a2f3",
-        "email": "test1@google.com",
+        "email": "test1@example.com",
+        "fullName": "Juan Carlos",
+        "roles": [
+          "admin"
+        ]
+      }
+    },
+    {
+      "id": "prod-36",
+      "title": "Camiseta infantil estampado sol",
+      "price": 15,
+      "description": "Estampado de sol y olas en tintas al agua, sobre algodón verde bosque.",
+      "slug": "camiseta_infantil_estampado_sol_kid",
+      "stock": 12,
+      "sizes": [
+        "XS",
+        "S",
+        "M"
+      ],
+      "gender": "kid",
+      "tags": [
+        "camiseta",
+        "infantil",
+        "estampado"
+      ],
+      "images": [
+        "camiseta_infantil_estampado_sol_kid.webp"
+      ],
+      "user": {
+        "id": "e5463438-0caf-49cb-aaa7-dc3250f9a2f3",
+        "email": "test1@example.com",
+        "fullName": "Juan Carlos",
+        "roles": [
+          "admin"
+        ]
+      }
+    },
+    {
+      "id": "prod-37",
+      "title": "Camiseta infantil de manga larga",
+      "price": 16,
+      "description": "Manga larga infantil en azul cielo, con puños ajustados para que no se suban al jugar.",
+      "slug": "camiseta_infantil_de_manga_larga_kid",
+      "stock": 9,
+      "sizes": [
+        "XS",
+        "S",
+        "M"
+      ],
+      "gender": "kid",
+      "tags": [
+        "camiseta",
+        "infantil",
+        "manga larga"
+      ],
+      "images": [
+        "camiseta_infantil_de_manga_larga_kid.webp"
+      ],
+      "user": {
+        "id": "e5463438-0caf-49cb-aaa7-dc3250f9a2f3",
+        "email": "test1@example.com",
+        "fullName": "Juan Carlos",
+        "roles": [
+          "admin"
+        ]
+      }
+    },
+    {
+      "id": "prod-38",
+      "title": "Sudadera infantil con capucha",
+      "price": 32,
+      "description": "Sudadera con capucha infantil en naranja, con bolsillo canguro y sin cordones por seguridad.",
+      "slug": "sudadera_infantil_con_capucha_kid",
+      "stock": 10,
+      "sizes": [
+        "XS",
+        "S",
+        "M"
+      ],
+      "gender": "kid",
+      "tags": [
+        "sudadera",
+        "capucha",
+        "infantil"
+      ],
+      "images": [
+        "sudadera_infantil_con_capucha_kid.webp"
+      ],
+      "user": {
+        "id": "e5463438-0caf-49cb-aaa7-dc3250f9a2f3",
+        "email": "test1@example.com",
+        "fullName": "Juan Carlos",
+        "roles": [
+          "admin"
+        ]
+      }
+    },
+    {
+      "id": "prod-39",
+      "title": "Chaqueta acolchada infantil",
+      "price": 49,
+      "description": "Chaqueta acolchada ligera en rojo, con cremallera con protector para la barbilla.",
+      "slug": "chaqueta_acolchada_infantil_kid",
+      "stock": 4,
+      "sizes": [
+        "XS",
+        "S",
+        "M"
+      ],
+      "gender": "kid",
+      "tags": [
+        "chaqueta",
+        "acolchada",
+        "infantil"
+      ],
+      "images": [
+        "chaqueta_acolchada_infantil_kid.webp"
+      ],
+      "user": {
+        "id": "e5463438-0caf-49cb-aaa7-dc3250f9a2f3",
+        "email": "test1@example.com",
+        "fullName": "Juan Carlos",
+        "roles": [
+          "admin"
+        ]
+      }
+    },
+    {
+      "id": "prod-40",
+      "title": "Pantalón de chándal infantil",
+      "price": 22,
+      "description": "Jogger infantil de felpa con rodillas reforzadas y cintura elástica cómoda.",
+      "slug": "pantalon_de_chandal_infantil_kid",
+      "stock": 15,
+      "sizes": [
+        "XS",
+        "S",
+        "M"
+      ],
+      "gender": "kid",
+      "tags": [
+        "pantalon",
+        "chandal",
+        "infantil"
+      ],
+      "images": [
+        "pantalon_de_chandal_infantil_kid.webp"
+      ],
+      "user": {
+        "id": "e5463438-0caf-49cb-aaa7-dc3250f9a2f3",
+        "email": "test1@example.com",
+        "fullName": "Juan Carlos",
+        "roles": [
+          "admin"
+        ]
+      }
+    },
+    {
+      "id": "prod-41",
+      "title": "Body de bebé básico",
+      "price": 12,
+      "description": "Body de manga corta en algodón orgánico, con corchetes en la entrepierna para cambiar el pañal fácilmente.",
+      "slug": "body_de_bebe_basico_kid",
+      "stock": 20,
+      "sizes": [
+        "XS",
+        "S"
+      ],
+      "gender": "kid",
+      "tags": [
+        "body",
+        "bebe"
+      ],
+      "images": [
+        "body_de_bebe_basico_kid.webp"
+      ],
+      "user": {
+        "id": "e5463438-0caf-49cb-aaa7-dc3250f9a2f3",
+        "email": "test1@example.com",
+        "fullName": "Juan Carlos",
+        "roles": [
+          "admin"
+        ]
+      }
+    },
+    {
+      "id": "prod-42",
+      "title": "Body de bebé a rayas",
+      "price": 14,
+      "description": "Body de rayas verde menta, muy suave y elástico, con cuello de solapa americana.",
+      "slug": "body_de_bebe_a_rayas_kid",
+      "stock": 13,
+      "sizes": [
+        "XS",
+        "S"
+      ],
+      "gender": "kid",
+      "tags": [
+        "body",
+        "bebe",
+        "rayas"
+      ],
+      "images": [
+        "body_de_bebe_a_rayas_kid.webp"
+      ],
+      "user": {
+        "id": "e5463438-0caf-49cb-aaa7-dc3250f9a2f3",
+        "email": "test1@example.com",
+        "fullName": "Juan Carlos",
+        "roles": [
+          "admin"
+        ]
+      }
+    },
+    {
+      "id": "prod-43",
+      "title": "Body de bebé estampado",
+      "price": 14,
+      "description": "Body en color melocotón con un pequeño estampado de sol. Agotado hasta la próxima reposición.",
+      "slug": "body_de_bebe_estampado_kid",
+      "stock": 0,
+      "sizes": [
+        "XS",
+        "S"
+      ],
+      "gender": "kid",
+      "tags": [
+        "body",
+        "bebe",
+        "estampado"
+      ],
+      "images": [
+        "body_de_bebe_estampado_kid.webp"
+      ],
+      "user": {
+        "id": "e5463438-0caf-49cb-aaa7-dc3250f9a2f3",
+        "email": "test1@example.com",
         "fullName": "Juan Carlos",
         "roles": [
           "admin"

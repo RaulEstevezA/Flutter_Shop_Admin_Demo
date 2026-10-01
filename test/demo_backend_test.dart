@@ -21,7 +21,7 @@ class _MemoryAssetBundle extends CachingAssetBundle {
   }
 }
 
-const _admin = {'id': 'u1', 'email': 'test1@google.com', 'fullName': 'Juan Carlos', 'roles': ['admin']};
+const _admin = {'id': 'u1', 'email': 'test1@example.com', 'fullName': 'Juan Carlos', 'roles': ['admin']};
 
 Map<String, dynamic> _product(int i) => {
   'id': 'p$i',
@@ -54,7 +54,7 @@ void main() {
 
   group('AuthDataSourceDemo', () {
     test('login con credenciales correctas devuelve el usuario con token', () async {
-      final user = await AuthDataSourceDemo(store: store).login('Test1@google.com ', 'Abc123');
+      final user = await AuthDataSourceDemo(store: store).login('Test1@example.com ', 'Abc123');
 
       expect(user.fullName, 'Juan Carlos');
       expect(user.isAdmin, isTrue);
@@ -62,7 +62,7 @@ void main() {
     });
 
     test('login con contraseña incorrecta lanza CustomError', () {
-      expect(AuthDataSourceDemo(store: store).login('test1@google.com', 'mala'), throwsA(isA<CustomError>()));
+      expect(AuthDataSourceDemo(store: store).login('test1@example.com', 'mala'), throwsA(isA<CustomError>()));
     });
 
     test('register crea el usuario, permite comprobar su token y evita duplicados', () async {
@@ -115,7 +115,7 @@ void main() {
       });
 
       expect(created.id, isNotEmpty);
-      expect(created.user?.email, 'test1@google.com');
+      expect(created.user?.email, 'test1@example.com');
       expect((await datasource.getProductsByPage(limit: 20)).length, 13);
     });
 

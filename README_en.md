@@ -21,7 +21,7 @@ The architecture is the same as in the main repository (Clean Architecture, Rive
 
 ## Trying it out
 
-- **Test user:** `test1@google.com` · `Abc123`, or the "Entrar con el usuario de demo" button on the login screen.
+- **Test user:** `test1@example.com` · `Abc123`, or the "Entrar con el usuario de demo" button on the login screen.
 - **Sign-up:** you can create new accounts; they only exist in your browser.
 - **Products:** edit stock, prices, sizes or photos, or create new products. Changes survive a page reload.
 - **Photos:** in the browser, gallery and camera open the file picker. Photos are resized to at most 1000 px and stored in the browser.
@@ -45,13 +45,16 @@ This demo also:
 
 ## Demo data
 
-Initial data lives in `assets/data/` (`products.json`, `users.json`) and product photos in `assets/products/`. They are generated from an SQL dump of the backend with:
+The catalogue is **original**: 43 made-up products (names, descriptions, prices, sizes and stock), with no brands, and **illustrations drawn for this demo**. There are no third-party photos or texts, so nobody needs to be credited.
+
+- It is defined in [`tool/catalog/catalog.json`](tool/catalog/catalog.json): each product includes how it is drawn (garment type, colour and style: stripes, band, pocket, print, zip, puffer or pompom).
+- [`tool/generate_catalog.dart`](tool/generate_catalog.dart) draws the garments as SVG, converts them to WebP with headless Chrome and `cwebp`, and writes `assets/data/products.json`, `assets/data/users.json` and `assets/products/`:
 
 ```bash
-dart run tool/import_sql_dump.dart --sql=dump.sql --images=photos/folder [--password=Abc123]
+dart run tool/generate_catalog.dart
 ```
 
-Passwords in the dump are hashed and can't be recovered, so every imported user gets the password given with `--password`.
+Data can also be imported from an SQL dump of the backend with `tool/import_sql_dump.dart` (`--sql=dump.sql --images=photos/folder`). Note: the course's sample catalogue uses photos and texts from a real brand and must not be published.
 
 ## Relevant structure
 
@@ -66,7 +69,9 @@ lib/features/shared/infrastructure/demo/
 lib/features/auth/infrastructure/datasources/auth_datasource_demo.dart
 lib/features/products/infrastructure/datasources/products_datasource_demo.dart
 test/demo_backend_test.dart        Simulated backend tests
-tool/import_sql_dump.dart          SQL dump importer
+tool/catalog/catalog.json          Catalogue definition (products, users and illustrations)
+tool/generate_catalog.dart         Catalogue and illustration generator
+tool/import_sql_dump.dart          Optional importer for an SQL dump of the backend
 showcase/index.html                Presentation page with the phone frame
 .github/workflows/                 Tests, build and automatic deployment
 ```
