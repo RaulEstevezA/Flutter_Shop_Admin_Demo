@@ -1,0 +1,121 @@
+# Compila la app para web y la publica en la sección de demos de la web
+# personal: https://raulesteveza.github.io/demos/Flutter_Shop_Admin/
+#
+# Se publica en el repositorio RaulEstevezA/RaulEstevezA.github.io, que GitHub
+# Pages sirve al recibir el push:
+#   demos/Flutter_Shop_Admin/       ← showcase/ (página con el marco de móvil)
+#   demos/Flutter_Shop_Admin/app/   ← la app Flutter compilada
+#
+# Mismo mecanismo que el despliegue de e-plantShopping: un token con permiso
+# de escritura (Contents: Read and write) sobre RaulEstevezA.github.io, guardado
+# en este repositorio como secreto de Actions PORTFOLIO_DEPLOY_TOKEN.
+
+name: Deploy demo
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'lib/**'
+      - 'assets/**'
+      - 'web/**'
+      - 'showcase/**'
+      - 'test/**'
+      - 'pubspec.yaml'
+      - 'pubspec.lock'
+      - '.github/workflows/deploy-demo.yml'
+  workflow_dispatch:
+
+concurrency:
+  group: deploy-flutter-shop-admin-demo
+  cancel-in-progress: false
+
+env:
+  FLUTTER_VERSION: '3.47.5'
+  SITE_REPOSITORY: RaulEstevezA/RaulEstevezA.github.io
+  DEMO_PATH: demos/Flutter_Shop_Admin
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+
+    steps:
+      - name: Check deploy token
+        env:
+          PORTFOLIO_DEPLOY_TOKEN: ${{ secrets.PORTFOLIO_DEPLOY_TOKEN }}
+        run: |
+          if [ -z "$PORTFOLIO_DEPLOY_TOKEN" ]; then
+            echo "::error::Falta el secreto PORTFOLIO_DEPLOY_TOKEN (Settings → Secrets and variables → Actions)."
+            exit 1
+          fi
+
+      - name: Checkout app
+        uses: actions/checkout@v7
+
+      - name: Setup Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          channel: stable
+          flutter-version: ${{ env.FLUTTER_VERSION }}
+          cache: true
+
+      - name: Install dependencies
+        run: flutter pub get
+
+      - name: Analyze
+        run: flutter analyze
+
+      - name: Test
+        run: flutter test
+
+      - name: Build web
+        run: flutter build web --release --base-href "/${DEMO_PATH}/app/"
+
+      - name: Assemble demo
+        run: |
+          mkdir -p dist
+          cp -R showcase/. dist/
+          cp -R build/web dist/app
+
+      - name: Checkout site
+        uses: actions/checkout@v7
+        with:
+          repository: ${{ env.SITE_REPOSITORY }}
+          ref: main
+          token: ${{ secrets.PORTFOLIO_DEPLOY_TOKEN }}
+          path: site
+
+      - name: Copy build into site
+        run: |
+          mkdir -p "site/${DEMO_PATH}"
+          rsync -a --delete dist/ "site/${DEMO_PATH}/"
+
+      - name: Commit and push
+        working-directory: site
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add "${DEMO_PATH}"
+          if git diff --cached --quiet; then
+            echo "Sin cambios en ${DEMO_PATH}"
+            exit 0
+          fi
+          git commit -m "deploy: actualizar ${DEMO_PATH} desde ${GITHUB_REPOSITORY}@${GITHUB_SHA::7}"
+
+          # Otras demos (p. ej. e-plantShopping) también publican en este repo:
+          # si el push falla por estar desactualizado, se actualiza y se reintenta.
+          for attempt in 1 2 3; do
+            git pull --rebase origin main
+            if git push origin HEAD:main; then
+              exit 0
+            fi
+            if [ "$attempt" -lt 3 ]; then
+              echo "Intento $attempt fallido; reintentando tras actualizar main."
+              sleep 5
+            fi
+          done
+
+          echo "No se pudo publicar tras 3 intentos."
+          exit 1

@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Flutter Shop Admin · Demo</title>
+  <meta name="description" content="Demo web de Flutter Shop Admin, una app Flutter para gestionar el catálogo y el stock de una tienda. Versión con backend simulado en el navegador." />
+  <meta name="theme-color" content="#0d1117" />
+  <link rel="canonical" href="https://raulesteveza.github.io/demos/Flutter_Shop_Admin/" />
+  <link rel="icon" type="image/png" href="app/favicon.png" />
+  <!--
+    Página de presentación de la demo. Se publica en demos/Flutter_Shop_Admin/ y la app
+    Flutter compilada en demos/Flutter_Shop_Admin/app/ (ver .github/workflows/deploy-demo.yml).
+    Estilos alineados con https://raulesteveza.github.io (css/styles.css), copiados
+    aquí para que la página no dependa de cambios en la web.
+  -->
+  <style>
+    :root {
+      --page-bg:    #0d1117;
+      --window-bg:  #161b22;
+      --text:       #e6edf3;
+      --muted:      #8b949e;
+      --accent:     #58a6ff;
+      --btn-bg:     #21262d;
+      --btn-text:   #c9d1d9;
+      --btn-hover:  #30363d;
+      --border:     #30363d;
+      --tag-bg:     #1a2740;
+      --tag-text:   #79c0ff;
+      --warn-bg:    rgba(210, 153, 34, 0.1);
+      --warn-border:#9e6a03;
+      --warn-text:  #e3b341;
+      --phone-w:    390px;
+      --phone-h:    844px;
+    }
+
+    :root { color-scheme: dark; }
+
+    *, *::before, *::after { box-sizing: border-box; }
+
+    ::-webkit-scrollbar             { width: 8px; height: 8px; }
+    ::-webkit-scrollbar-track       { background: transparent; }
+    ::-webkit-scrollbar-thumb       { background: var(--border); border-radius: 4px; }
+    ::-webkit-scrollbar-thumb:hover { background: var(--muted); }
+
+    html, body { height: 100%; }
+
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--page-bg);
+      color: var(--text);
+      line-height: 1.5;
+    }
+
+    ::selection { background: rgba(88, 166, 255, 0.25); color: var(--text); }
+
+    a { color: var(--accent); }
+
+    /* ---------- Cabecera (igual que la web) ---------- */
+
+    .container { max-width: 1100px; margin: 0 auto; padding: 1.5rem 2rem; }
+
+    .nav { display: flex; justify-content: space-between; align-items: center; gap: 1rem; }
+
+    .breadcrumb { display: flex; gap: 0.4rem; align-items: center; font-size: 0.95rem; color: var(--muted); }
+    .breadcrumb a { color: inherit; text-decoration: none; transition: color 0.15s; }
+    .breadcrumb a:hover { color: var(--text); }
+    .breadcrumb .logo { color: var(--text); font-weight: 600; }
+
+    .lang { display: flex; gap: 0.5rem; }
+    .lang button {
+      background: none; border: 0; cursor: pointer; font: inherit;
+      color: var(--muted); font-size: 0.9rem; font-weight: 500;
+      padding: 2px 6px; border-radius: 4px; transition: color 0.15s;
+    }
+    .lang button[aria-pressed="true"] { color: var(--text); background: var(--btn-bg); }
+    .lang button:hover { color: var(--text); }
+
+    /* ---------- Escritorio: información + móvil ---------- */
+
+    .stage {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 3rem;
+      align-items: center;
+      padding-top: 0.5rem;
+      padding-bottom: 1.5rem;
+    }
+
+    .window {
+      background: var(--window-bg);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5), 0 1px 0 rgba(255, 255, 255, 0.04);
+      padding: 1.75rem 2.25rem;
+    }
+
+    h1 { font-size: 2.2rem; margin: 0 0 0.3rem; }
+    h2 { font-size: 1.2rem; font-weight: 400; color: var(--muted); margin: 0 0 1rem; }
+
+    .intro { margin: 0.75rem 0; line-height: 1.65; color: var(--muted); max-width: 560px; }
+
+    .tags { margin: 0.5rem 0 1.25rem; }
+    .tag {
+      display: inline-block; margin: 2px 3px 2px 0; padding: 3px 10px;
+      background: var(--tag-bg); color: var(--tag-text); border-radius: 20px;
+      font-size: 0.8rem; font-weight: 500;
+      font-family: 'SF Mono', 'Fira Code', 'Cascadia Code', monospace;
+    }
+
+    .notice {
+      border: 1px solid var(--warn-border);
+      background: var(--warn-bg);
+      border-radius: 10px;
+      padding: 0.8rem 1.1rem;
+      margin: 1rem 0;
+      font-size: 0.92rem;
+      line-height: 1.6;
+    }
+    .notice strong { color: var(--warn-text); }
+    .notice ul { margin: 0.5rem 0 0; padding-left: 1.2rem; color: var(--btn-text); }
+    .notice li { margin-bottom: 0.25rem; }
+    .notice code {
+      font-family: 'SF Mono', 'Fira Code', 'Cascadia Code', monospace; font-size: 0.85em;
+      background: rgba(110, 118, 129, 0.25); padding: 1px 6px; border-radius: 6px; color: var(--text);
+    }
+
+    .actions { display: flex; flex-wrap: wrap; gap: 0.6rem; margin-top: 1.25rem; }
+
+    .btn {
+      display: inline-flex; align-items: center; gap: 0.4rem;
+      padding: 0.5rem 1.15rem;
+      background: var(--btn-bg); color: var(--btn-text);
+      border: 1px solid var(--border); border-radius: 8px;
+      text-decoration: none; font: inherit; font-weight: 500; font-size: 0.9rem;
+      cursor: pointer;
+      transition: background-color 0.15s ease, border-color 0.15s ease;
+    }
+    .btn:hover { background: var(--btn-hover); border-color: var(--muted); }
+    .btn:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+    .btn.primary { background: var(--accent); color: #0d1117; border-color: var(--accent); }
+    .btn.primary:hover { background: #79c0ff; border-color: #79c0ff; }
+
+    /* ---------- Marco del teléfono ---------- */
+
+    .phone {
+      /* Se ajusta a la altura de la ventana manteniendo la proporción del móvil. */
+      height: min(var(--phone-h), calc(100dvh - 10rem));
+      aspect-ratio: 390 / 844;
+      padding: 12px;
+      border-radius: 54px;
+      background: #05070a;
+      border: 1px solid var(--border);
+      box-shadow:
+        0 0 0 2px #1c2128,
+        0 30px 80px rgba(0, 0, 0, 0.6),
+        inset 0 0 0 1px rgba(255, 255, 255, 0.05);
+      position: relative;
+    }
+    /* Botones laterales */
+    .phone::before, .phone::after {
+      content: ""; position: absolute; width: 3px; border-radius: 2px; background: #1c2128;
+    }
+    .phone::before { left: -4px; top: 18%; height: 9%; box-shadow: 0 calc(100% + 18px) 0 #1c2128; }
+    .phone::after  { right: -4px; top: 24%; height: 13%; }
+
+    .phone iframe {
+      display: block; width: 100%; height: 100%;
+      border: 0; border-radius: 42px; background: #f8f9ff;
+    }
+
+    .hint { text-align: center; color: var(--muted); font-size: 0.82rem; margin-top: 0.9rem; }
+
+
+    /* ---------- Móvil real: la app a pantalla completa ---------- */
+
+    .mobile-only { display: none; }
+
+    @media (max-width: 760px), (max-height: 560px) {
+      body { overflow: hidden; }
+      header, .stage { display: none; }
+      .mobile-only { display: block; }
+
+      .fullscreen-app {
+        position: fixed; inset: 0;
+        width: 100vw; height: 100dvh;
+        border: 0; background: #f8f9ff;
+      }
+
+      /* Botón de información, discreto en el borde derecho */
+      .info-fab {
+        position: fixed; right: 0; top: 50%; transform: translateY(-50%);
+        z-index: 2;
+        width: 30px; height: 52px;
+        border: 1px solid var(--border); border-right: 0;
+        border-radius: 12px 0 0 12px;
+        background: rgba(22, 27, 34, 0.85); color: var(--text);
+        font: 600 1rem/1 Georgia, serif; cursor: pointer;
+        backdrop-filter: blur(6px);
+      }
+
+      /* Hoja de información */
+      .sheet {
+        position: fixed; inset: auto 0 0 0; z-index: 3;
+        max-height: 88dvh; overflow-y: auto;
+        background: var(--window-bg);
+        border-top: 1px solid var(--border);
+        border-radius: 18px 18px 0 0;
+        padding: 1.25rem 1.25rem calc(1.25rem + env(safe-area-inset-bottom));
+        box-shadow: 0 -20px 60px rgba(0, 0, 0, 0.6);
+        transform: translateY(105%);
+        transition: transform 0.25s ease;
+      }
+      .sheet.open { transform: none; }
+      .sheet-backdrop {
+        position: fixed; inset: 0; z-index: 2;
+        background: rgba(1, 4, 9, 0.6);
+        opacity: 0; pointer-events: none; transition: opacity 0.25s ease;
+      }
+      .sheet-backdrop.open { opacity: 1; pointer-events: auto; }
+      .sheet h1 { font-size: 1.6rem; }
+      .sheet .grabber { width: 40px; height: 4px; border-radius: 2px; background: var(--border); margin: -0.25rem auto 1rem; }
+      .sheet .actions .btn { flex: 1 1 auto; justify-content: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ========== Escritorio ========== -->
+
+  <header class="container">
+    <nav class="nav">
+      <div class="breadcrumb">
+        <a class="logo" href="/">Raúl Estévez</a>
+        <span aria-hidden="true">/</span>
+        <a href="/demos/" data-i18n="demos">Demos</a>
+        <span aria-hidden="true">/</span>
+        <span>Flutter Shop Admin</span>
+      </div>
+      <div class="lang" role="group" aria-label="Idioma / Language">
+        <button type="button" data-lang="en">EN</button>
+        <button type="button" data-lang="es">ES</button>
+      </div>
+    </nav>
+  </header>
+
+  <main class="container stage">
+    <section class="window">
+      <!-- La ficha se rellena desde la plantilla #info para compartirla con la versión móvil. -->
+      <div data-info></div>
+    </section>
+
+    <div>
+      <div class="phone">
+        <iframe id="desktop-app" title="Flutter Shop Admin" loading="eager" allow="clipboard-write"></iframe>
+      </div>
+      <p class="hint" data-i18n="hint">Arrastra con el ratón para desplazarte por los carruseles.</p>
+    </div>
+  </main>
+
+  <!-- ========== Móvil real ========== -->
+
+  <div class="mobile-only">
+    <iframe id="mobile-app" class="fullscreen-app" title="Flutter Shop Admin"></iframe>
+    <button type="button" class="info-fab" aria-label="Información" data-open-sheet>i</button>
+    <div class="sheet-backdrop" data-close-sheet></div>
+    <aside class="sheet" aria-label="Información">
+      <div class="grabber"></div>
+      <div data-info></div>
+      <div class="actions">
+        <button type="button" class="btn primary" data-close-sheet data-i18n="view_demo">Ver la demo</button>
+      </div>
+    </aside>
+  </div>
+
+  <!-- Ficha de la demo (común a escritorio y móvil) -->
+  <template id="info">
+    <h1>Flutter Shop Admin</h1>
+    <h2 data-i18n="subtitle">App Flutter para gestionar el catálogo y el stock de una tienda</h2>
+
+    <div class="tags">
+      <span class="tag">Flutter</span>
+      <span class="tag">Dart</span>
+      <span class="tag">Riverpod</span>
+      <span class="tag">Clean Architecture</span>
+      <span class="tag">go_router</span>
+      <span class="tag">Formz</span>
+      <span class="tag">image_picker</span>
+    </div>
+
+    <p class="intro" data-i18n="intro">
+      Inicio de sesión y registro, catálogo con scroll infinito y edición de cada
+      producto: nombre, precio, stock, tallas, género y fotos desde la cámara o
+      la galería. Esta es la versión web de la app móvil, ejecutándose tal cual en el navegador.
+    </p>
+
+    <div class="notice">
+      <strong data-i18n="notice_title">Demo sin backend</strong>
+      <ul>
+        <li data-i18n="notice_api">La app original trabaja contra una API REST (NestJS + PostgreSQL) con autenticación JWT. En esta demo ese backend se simula dentro del navegador.</li>
+        <li><span data-i18n="notice_user">Usuario de prueba:</span> <code>test1@google.com</code> · <code>Abc123</code> <span data-i18n="notice_user_hint">(o usa el botón «Entrar con el usuario de demo»).</span></li>
+        <li data-i18n="notice_storage">Los cambios, usuarios y fotos que añadas se guardan solo en este navegador. Puedes volver al estado inicial con «Restablecer datos de la demo» en el menú lateral.</li>
+      </ul>
+    </div>
+
+    <div class="actions">
+      <a class="btn primary" href="https://github.com/RaulEstevezA/Flutter_Shop_Admin" target="_blank" rel="noopener" data-i18n="code">Código y descarga ↗</a>
+      <a class="btn" href="https://github.com/RaulEstevezA/Flutter_Shop_Admin_Backend" target="_blank" rel="noopener" data-i18n="backend">Backend ↗</a>
+      <a class="btn" href="app/" target="_blank" rel="noopener" data-i18n="fullscreen">Pantalla completa ↗</a>
+    </div>
+  </template>
+
+
+  <script>
+    (function () {
+      var APP_URL = 'app/';
+
+      var texts = {
+        es: {
+          demos: 'Demos',
+          hint: 'Arrastra con el ratón para desplazarte por el catálogo y las fotos.',
+          subtitle: 'App Flutter para gestionar el catálogo y el stock de una tienda',
+          intro: 'Inicio de sesión y registro, catálogo con scroll infinito y edición de cada producto: nombre, precio, stock, tallas, género y fotos desde la cámara o la galería. Esta es la versión web de la app móvil, ejecutándose tal cual en el navegador.',
+          notice_title: 'Demo sin backend',
+          notice_api: 'La app original trabaja contra una API REST (NestJS + PostgreSQL) con autenticación JWT. En esta demo ese backend se simula dentro del navegador.',
+          notice_user: 'Usuario de prueba:',
+          notice_user_hint: '(o usa el botón «Entrar con el usuario de demo»).',
+          notice_storage: 'Los cambios, usuarios y fotos que añadas se guardan solo en este navegador. Puedes volver al estado inicial con «Restablecer datos de la demo» en el menú lateral.',
+          code: 'Código y descarga ↗',
+          backend: 'Backend ↗',
+          fullscreen: 'Pantalla completa ↗',
+          view_demo: 'Ver la demo'
+        },
+        en: {
+          demos: 'Demos',
+          hint: 'Drag with the mouse to scroll the catalogue and photos.',
+          subtitle: 'Flutter app to manage a shop\'s catalogue and stock',
+          intro: 'Login and sign-up, infinite-scroll catalogue and product editing: name, price, stock, sizes, gender and photos from the camera or gallery. This is the web build of the mobile app, running as-is in the browser.',
+          notice_title: 'Demo without a backend',
+          notice_api: 'The original app works against a REST API (NestJS + PostgreSQL) with JWT authentication. In this demo that backend is simulated inside the browser.',
+          notice_user: 'Test user:',
+          notice_user_hint: '(or use the “Entrar con el usuario de demo” button).',
+          notice_storage: 'Changes, users and photos you add are only stored in this browser. Go back to the initial state with “Restablecer datos de la demo” in the side menu.',
+          code: 'Code & download ↗',
+          backend: 'Backend ↗',
+          fullscreen: 'Full screen ↗',
+          view_demo: 'View demo'
+        }
+      };
+
+      // --- Idioma: misma preferencia que la web (localStorage 'lang') ---
+
+      function readLang() {
+        try {
+          var stored = localStorage.getItem('lang');
+          if (stored === 'es' || stored === 'en') return stored;
+        } catch (e) {}
+        return (navigator.language || '').slice(0, 2).toLowerCase() === 'es' ? 'es' : 'en';
+      }
+
+      var lang = readLang();
+
+      function t(key) { return texts[lang][key] || texts.es[key] || key; }
+
+      function applyLang() {
+        document.documentElement.lang = lang;
+        document.querySelectorAll('[data-i18n]').forEach(function (el) {
+          el.textContent = t(el.dataset.i18n);
+        });
+        document.querySelectorAll('.lang button').forEach(function (button) {
+          button.setAttribute('aria-pressed', String(button.dataset.lang === lang));
+        });
+      }
+
+      document.querySelectorAll('.lang button').forEach(function (button) {
+        button.addEventListener('click', function () {
+          lang = button.dataset.lang;
+          try { localStorage.setItem('lang', lang); } catch (e) {}
+          applyLang();
+        });
+      });
+
+      // --- Ficha compartida ---
+
+      var template = document.getElementById('info');
+      document.querySelectorAll('[data-info]').forEach(function (slot) {
+        slot.appendChild(template.content.cloneNode(true));
+      });
+
+      // --- Una sola instancia de la app: en el marco o a pantalla completa ---
+
+      var mobileQuery = window.matchMedia('(max-width: 760px), (max-height: 560px)');
+      var desktopFrame = document.getElementById('desktop-app');
+      var mobileFrame = document.getElementById('mobile-app');
+
+      function mountApp() {
+        var active = mobileQuery.matches ? mobileFrame : desktopFrame;
+        var inactive = mobileQuery.matches ? desktopFrame : mobileFrame;
+        if (inactive.getAttribute('src')) inactive.removeAttribute('src');
+        if (!active.getAttribute('src')) active.setAttribute('src', APP_URL);
+      }
+
+      mountApp();
+      mobileQuery.addEventListener('change', mountApp);
+
+      // --- Hoja de información (móvil): se muestra una vez por sesión ---
+
+      var sheet = document.querySelector('.sheet');
+      var backdrop = document.querySelector('.sheet-backdrop');
+
+      function setSheet(open) {
+        sheet.classList.toggle('open', open);
+        backdrop.classList.toggle('open', open);
+      }
+
+      document.querySelectorAll('[data-open-sheet]').forEach(function (el) {
+        el.addEventListener('click', function () { setSheet(true); });
+      });
+      document.querySelectorAll('[data-close-sheet]').forEach(function (el) {
+        el.addEventListener('click', function () { setSheet(false); });
+      });
+
+      if (mobileQuery.matches) {
+        var seen = false;
+        try { seen = sessionStorage.getItem('shop-admin-demo-sheet') === '1'; } catch (e) {}
+        if (!seen) {
+          setSheet(true);
+          try { sessionStorage.setItem('shop-admin-demo-sheet', '1'); } catch (e) {}
+        }
+      }
+
+
+      applyLang();
+    })();
+  </script>
+</body>
+</html>

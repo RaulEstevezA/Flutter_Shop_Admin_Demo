@@ -1,0 +1,108 @@
+{
+  "products": [
+    {
+      "id": "00000000-0000-4000-8000-000000000001",
+      "title": "Camiseta básica de algodón",
+      "price": 19,
+      "description": "Camiseta de manga corta de algodón orgánico, corte recto y cuello redondo. (Producto de ejemplo provisional.)",
+      "slug": "camiseta_basica_algodon",
+      "stock": 24,
+      "sizes": [
+        "S",
+        "M",
+        "L",
+        "XL"
+      ],
+      "gender": "men",
+      "tags": [
+        "camiseta",
+        "algodon"
+      ],
+      "images": [],
+      "user": {
+        "id": "e5463438-0caf-49cb-aaa7-dc3250f9a2f3",
+        "email": "test1@google.com",
+        "fullName": "Juan Carlos",
+        "roles": [
+          "admin"
+        ]
+      }
+    },
+    {
+      "id": "00000000-0000-4000-8000-000000000002",
+      "title": "Sudadera con capucha",
+      "price": 45,
+      "description": "Sudadera de felpa con capucha ajustable y bolsillo canguro. (Producto de ejemplo provisional.)",
+      "slug": "sudadera_capucha",
+      "stock": 12,
+      "sizes": [
+        "XS",
+        "S",
+        "M",
+        "L"
+      ],
+      "gender": "women",
+      "tags": [
+        "sudadera"
+      ],
+      "images": [],
+      "user": {
+        "id": "e5463438-0caf-49cb-aaa7-dc3250f9a2f3",
+        "email": "test1@google.com",
+        "fullName": "Juan Carlos",
+        "roles": [
+          "admin"
+        ]
+      }
+    },
+    {
+      "id": "00000000-0000-4000-8000-000000000003",
+      "title": "Chaqueta acolchada infantil",
+      "price": 39,
+      "description": "Chaqueta ligera acolchada con cremallera, pensada para entretiempo. (Producto de ejemplo provisional.)",
+      "slug": "chaqueta_acolchada_infantil",
+      "stock": 8,
+      "sizes": [
+        "XS",
+        "S",
+        "M"
+      ],
+      "gender": "kid",
+      "tags": [
+        "chaqueta"
+      ],
+      "images": [],
+      "user": {
+        "id": "e5463438-0caf-49cb-aaa7-dc3250f9a2f3",
+        "email": "test1@google.com",
+        "fullName": "Juan Carlos",
+        "roles": [
+          "admin"
+        ]
+      }
+    },
+    {
+      "id": "00000000-0000-4000-8000-000000000004",
+      "title": "Gorra de lona",
+      "price": 15,
+      "description": "Gorra de lona con cierre ajustable. (Producto de ejemplo provisional.)",
+      "slug": "gorra_lona",
+      "stock": 0,
+      "sizes": [],
+      "gender": "women",
+      "tags": [
+        "gorra",
+        "accesorios"
+      ],
+      "images": [],
+      "user": {
+        "id": "e5463438-0caf-49cb-aaa7-dc3250f9a2f3",
+        "email": "test1@google.com",
+        "fullName": "Juan Carlos",
+        "roles": [
+          "admin"
+        ]
+      }
+    }
+  ]
+}
