@@ -95,18 +95,6 @@ cd /tmp/site && python3 -m http.server 8000
 # Abrir http://localhost:8000/demos/Flutter_Shop_Admin/
 ```
 
-## Despliegue
-
-El workflow [`deploy-demo.yml`](.github/workflows/deploy-demo.yml) se ejecuta en cada push a `main` (y manualmente desde Actions):
-
-1. Ejecuta `flutter analyze` y `flutter test`.
-2. Compila la app para web con la ruta `/demos/Flutter_Shop_Admin/app/`.
-3. Copia `showcase/` y la app compilada en `demos/Flutter_Shop_Admin/` del repositorio [RaulEstevezA.github.io](https://github.com/RaulEstevezA/RaulEstevezA.github.io), que GitHub Pages publica.
-
-Necesita el secreto de Actions `PORTFOLIO_DEPLOY_TOKEN`: un token *fine-grained* con permiso **Contents: Read and write** solo sobre `RaulEstevezA.github.io`.
-
-La carpeta `demos/Flutter_Shop_Admin/` de la web se sustituye entera en cada despliegue, así que no debe editarse a mano.
-
 ## Créditos
 
 Proyecto basado en el curso **«Flutter de Cero a Experto»** de Fernando Herrera. Los detalles están en el [repositorio principal](https://github.com/RaulEstevezA/Flutter_Shop_Admin).
