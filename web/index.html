@@ -18,19 +18,21 @@
 
   <meta charset="UTF-8">
   <meta content="IE=Edge" http-equiv="X-UA-Compatible">
-  <meta name="description" content="A new Flutter project.">
+  <meta name="description" content="Flutter Shop Admin: gestión de catálogo, productos y stock.">
+  <meta name="theme-color" content="#424CB8">
 
   <!-- iOS meta tags & icons -->
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
-  <meta name="apple-mobile-web-app-title" content="flutter_shop_admin">
+  <meta name="apple-mobile-web-app-title" content="Shop Admin">
   <link rel="apple-touch-icon" href="icons/Icon-192.png">
 
   <!-- Favicon -->
   <link rel="icon" type="image/png" href="favicon.png"/>
 
-  <title>flutter_shop_admin</title>
+  <title>Flutter Shop Admin</title>
   <link rel="manifest" href="manifest.json">
+  <link rel="stylesheet" href="loading.css">
 
   <script>
     // The value below is injected by flutter build, do not touch.
@@ -40,7 +42,26 @@
   <script src="flutter.js" defer></script>
 </head>
 <body>
+  <div id="app-loader" class="app-loader" role="status" aria-label="Cargando Flutter Shop Admin">
+    <img
+      class="app-loader__logo"
+      src="icons/shop-admin-logo.png"
+      alt="Flutter Shop Admin"
+      width="512"
+      height="512"
+    >
+    <span class="app-loader__indicator" aria-hidden="true"></span>
+  </div>
   <script>
+    window.addEventListener('flutter-first-frame', function() {
+      var loader = document.getElementById('app-loader');
+      if (!loader) return;
+      loader.classList.add('is-hidden');
+      loader.addEventListener('transitionend', function() {
+        loader.remove();
+      }, { once: true });
+    });
+
     window.addEventListener('load', function(ev) {
       // Download main.dart.js
       _flutter.loader.loadEntrypoint({
