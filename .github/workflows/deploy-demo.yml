@@ -79,6 +79,18 @@ jobs:
           cp -R showcase/. dist/
           cp -R build/web dist/app
 
+      - name: Check Cloudflare Web Analytics
+        run: |
+          status=0
+          while IFS= read -r -d '' file; do
+            count=$(grep -o 'static.cloudflareinsights.com/beacon.min.js' "$file" | wc -l | tr -d ' ')
+            if [ "$count" -ne 1 ]; then
+              echo "::error file=${file}::${file} contiene ${count} beacons de Cloudflare Web Analytics; debe contener exactamente 1."
+              status=1
+            fi
+          done < <(find dist -name '*.html' -print0)
+          exit $status
+
       - name: Checkout site
         uses: actions/checkout@v7
         with:
